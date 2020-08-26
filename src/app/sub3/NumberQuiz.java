@@ -1,29 +1,33 @@
 package app.sub3;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class NumberQuiz {
 
-  private static int[] NUMBERS = { 3, 4, 9 };
+  /** 乱数の最大値 */
+  private static final int MAX_NUMBER = 10;
+  /** 最大入力回数 */
+  private static final int COUNT = 5;
 
   public static void main(String args[]) {
     new NumberQuiz().start();
   }
 
   private void start() {
-    System.out.println("1桁の数字を入力してください。");
-    this.process();
+    int numbers = new Random().nextInt(MAX_NUMBER);
+    for (int i = 0; i < COUNT; i++) {
+      System.out.println("0~9の数字を入力してください。");
+      int inputNumber = new Scanner(System.in).nextInt();
+      this.judge(numbers, inputNumber);
+    }
   }
 
-  private void process() {
-    int input = new Scanner(System.in).nextInt();
-    for (int n : NUMBERS) {
-      if (n != input) {
-        System.out.println("miss");
-        break;
-      } else {
-        System.out.println("collect");
-      }
+  private void judge(int numbers, int inputNumber) {
+    if (numbers == inputNumber) {
+      System.out.println("collect");
+    } else {
+      System.out.println("miss");
     }
   }
 }
