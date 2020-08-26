@@ -3,10 +3,10 @@ package app.sub1;
 public class CalcArea {
 
   public static void main(String[] args) {
-    new CalcArea().ResultOutput();
+    new CalcArea().resultOutput();
   }
 
-  private void ResultOutput() {
+  private void resultOutput() {
     double triangleArea = calcTriangleArea(Constants.BOTTOM, Constants.HEIGHT);
     double circleArea = calcCicleArea(Constants.RADIUS);
 
