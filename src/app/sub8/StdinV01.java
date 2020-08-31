@@ -10,10 +10,6 @@ public class StdinV01 {
     new StdinV01().judge();
   }
 
-//  StdinV01() {
-//    new StdinV01().judge();
-//  }
-
   private String input() {
     Scanner scan = new Scanner(System.in);
     String inputValue = scan.nextLine();
