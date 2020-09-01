@@ -15,41 +15,76 @@ public class CheckPassWord {
   private static final String NUMBER = "(.*[0-9].*)";
   /** 全角スペース */
   private static final String SPACE = "(.*[ ].*)";
+  /** 全角記号 */
+  private static final String SYMBOL = "(.*[ ! # @ $ %^& * () - _ = + [ ] ; : ' \" , <.>/?].*)";
 
   OutputMessage msg = new OutputMessage();
 
   public void checkProcess(String password) {
-    this.isShortPass(password);
+    this.isPassLength(password);
     this.isUpperCasePass(password);
     this.isNumberPass(password);
     this.isSpaceContain(password);
+    this.isSymbolContain(password);
   }
 
-  private boolean isShortPass(String password) {
+  /**
+   * パスワードが8文字以上であることを判定する。
+   * @param password 入力されたパスワード
+   * @return 8文字以上であればtrue、8文字以下はfalse
+   */
+  private boolean isPassLength(String password) {
     if(password.length() < MIN_LENGTH) {
       msg.resultShortPass();
     }
-    return false;
+    return true;
   }
 
+  /**
+   * 英大文字が含まれていることを判定する。
+   * @param password 入力されたパスワード
+   * @return
+   */
   private boolean isUpperCasePass(String password) {
     if(!password.matches(UPPER_CASE)) {
       msg.resultUpperCasePass();
     }
-    return false;
+    return true;
   }
 
+  /**
+   * 数字が含まれていることを判定する。
+   * @param password 入力されたパスワード
+   * @return
+   */
   private boolean isNumberPass(String password) {
     if(!password.matches(NUMBER)) {
       msg.resultNumber();
     }
-    return false;
+    return true;
   }
 
+  /**
+   * スペースが含まれていないことを判定する。
+   * @param password 入力されたパスワード
+   * @return
+   */
   private boolean isSpaceContain(String password) {
     if(!password.matches(SPACE)) {
-      msg.resultSpace();
+      msg.resultContainSpace();
     }
-    return false;
+    return true;
+  }
+
+  /**
+   * 記号が含まれていないことを判定する。
+   * @param password 入力されたパスワード
+   * @return
+   */
+  private boolean isSymbolContain(String password) {
+    if(!password.matches(SYMBOL)) {
+      msg.resultContainSymbol();
+    }
+    return true;
   }
 }

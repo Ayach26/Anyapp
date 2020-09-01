@@ -19,7 +19,11 @@ public class OutputMessage {
     System.out.println("パスワードには最低１文字以上の数字を含んでください。");
   }
 
-  public void resultSpace() {
+  public void resultContainSpace() {
     System.out.println("パスワードには全角スペースを含まないでください。");
+  }
+
+  public void resultContainSymbol() {
+    System.out.println("パスワードには記号を含まないでください。");
   }
 }
