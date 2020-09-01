@@ -13,6 +13,8 @@ public class CheckPassWord {
   private static final String UPPER_CASE = "(.*[A-Z].*)";
   /** 数字 */
   private static final String NUMBER = "(.*[0-9].*)";
+  /** 全角スペース */
+  private static final String SPACE = "(.*[ ].*)";
 
   OutputMessage msg = new OutputMessage();
 
@@ -20,6 +22,7 @@ public class CheckPassWord {
     this.isShortPass(password);
     this.isUpperCasePass(password);
     this.isNumberPass(password);
+    this.isSpaceContain(password);
   }
 
   private boolean isShortPass(String password) {
@@ -39,6 +42,13 @@ public class CheckPassWord {
   private boolean isNumberPass(String password) {
     if(!password.matches(NUMBER)) {
       msg.resultNumber();
+    }
+    return false;
+  }
+
+  private boolean isSpaceContain(String password) {
+    if(!password.matches(SPACE)) {
+      msg.resultSpace();
     }
     return false;
   }

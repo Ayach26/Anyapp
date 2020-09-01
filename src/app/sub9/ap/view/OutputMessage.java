@@ -18,4 +18,8 @@ public class OutputMessage {
   public void resultNumber() {
     System.out.println("パスワードには最低１文字以上の数字を含んでください。");
   }
+
+  public void resultSpace() {
+    System.out.println("パスワードには全角スペースを含まないでください。");
+  }
 }
