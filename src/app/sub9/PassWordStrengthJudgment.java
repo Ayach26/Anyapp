@@ -2,6 +2,7 @@ package app.sub9;
 
 import app.sub9.ap.data.CheckPassWord;
 import app.sub9.ap.data.InputPassWord;
+import app.sub9.ap.view.OutputMessage;
 
 /**
  * パスワードの強度判定プログラム
@@ -19,8 +20,8 @@ public class PassWordStrengthJudgment {
   }
 
   private void process() {
-    System.out.println("パスワードを入力してください。");
-    System.out.print("> ");
+    OutputMessage msg = new OutputMessage();
+    msg.dialog();
     String inputValue = new InputPassWord().input();
     new CheckPassWord().checkProcess(inputValue);
   }

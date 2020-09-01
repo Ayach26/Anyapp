@@ -2,6 +2,11 @@ package app.sub9.ap.view;
 
 public class OutputMessage {
 
+  public void dialog() {
+    System.out.println("パスワードを入力してください。");
+    System.out.print("> ");
+  }
+
   public void resultShortPass() {
     System.out.println("パスワードが短いです。");
   }
