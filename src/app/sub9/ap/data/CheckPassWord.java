@@ -1,5 +1,7 @@
 package app.sub9.ap.data;
 
+import java.util.regex.Pattern;
+
 import app.sub9.ap.view.OutputMessage;
 
 /**
@@ -13,10 +15,13 @@ public class CheckPassWord {
   private static final String UPPER_CASE = "(.*[A-Z].*)";
   /** 数字 */
   private static final String NUMBER = "(.*[0-9].*)";
-  /** 全角スペース */
-  private static final String SPACE = "(.*[ ].*)";
-  /** 全角記号 */
-  private static final String SYMBOL = "(.*[ ! # @ $ %^& * () - _ = + [ ] ; : ' \" , <.>/?].*)";
+  /** コンパイル済みの全角スペース */
+  private static final Pattern SPACE = Pattern.compile("(.*[ ].*)");
+  /** コンパイル済みの全角記号 */
+  private static final Pattern SYMBOL = Pattern.compile("/(.*[!,%,&,@,#,$,^,*,?,_,~].*[!,%,&,@,#,$,^,*,?,_,~])/");
+//  "(.*[ ! # @ $ %^& * () - _ = + [ ] ; : ' \" , <.>/?].*)"
+  /** 英数字 */
+//private static final String ALPHANUMERIC = "^[0-9a-zA-Z]+$";
 
   OutputMessage msg = new OutputMessage();
 
@@ -31,7 +36,7 @@ public class CheckPassWord {
   /**
    * パスワードが8文字以上であることを判定する。
    * @param password 入力されたパスワード
-   * @return 8文字以上であればtrue、8文字以下はfalse
+   * @return 8文字以上であればtrue
    */
   private boolean isPassLength(String password) {
     if(password.length() < MIN_LENGTH) {
@@ -43,7 +48,7 @@ public class CheckPassWord {
   /**
    * 英大文字が含まれていることを判定する。
    * @param password 入力されたパスワード
-   * @return
+   * @return 英大文字が含まれていればtrue
    */
   private boolean isUpperCasePass(String password) {
     if(!password.matches(UPPER_CASE)) {
@@ -55,7 +60,7 @@ public class CheckPassWord {
   /**
    * 数字が含まれていることを判定する。
    * @param password 入力されたパスワード
-   * @return
+   * @return 数字が含まれていればtrue
    */
   private boolean isNumberPass(String password) {
     if(!password.matches(NUMBER)) {
@@ -67,10 +72,10 @@ public class CheckPassWord {
   /**
    * スペースが含まれていないことを判定する。
    * @param password 入力されたパスワード
-   * @return
+   * @return スペースが含まれていなければtrue
    */
   private boolean isSpaceContain(String password) {
-    if(!password.matches(SPACE)) {
+    if(SPACE.matcher(password).find()) {
       msg.resultContainSpace();
     }
     return true;
@@ -79,10 +84,10 @@ public class CheckPassWord {
   /**
    * 記号が含まれていないことを判定する。
    * @param password 入力されたパスワード
-   * @return
+   * @return 記号が含まれていなければtrue
    */
   private boolean isSymbolContain(String password) {
-    if(!password.matches(SYMBOL)) {
+    if(SYMBOL.matcher(password).find()) {
       msg.resultContainSymbol();
     }
     return true;

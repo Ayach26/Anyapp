@@ -20,7 +20,7 @@ public class OutputMessage {
   }
 
   public void resultContainSpace() {
-    System.out.println("パスワードには全角スペースを含まないでください。");
+    System.out.println("パスワードにはスペースを含まないでください。");
   }
 
   public void resultContainSymbol() {
