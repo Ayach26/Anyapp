@@ -8,7 +8,15 @@ public class OutputMessage {
   }
 
   public void resultShortPass() {
-    System.out.println("パスワードが短いです。");
+    System.out.println("短いパスワードです。");
+  }
+
+  public void resultWeakPass() {
+    System.out.println("弱いパスワードです。");
+  }
+
+  public void resultStrongPass() {
+    System.out.println("強いパスワードです。");
   }
 
   public void resultUpperCasePass() {
