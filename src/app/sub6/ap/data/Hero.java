@@ -9,6 +9,23 @@ public class Hero {
   /** 勇者が装備している剣の情報 */
   Sword sword;
 
+  /**
+   * 引数なしコンストラクタ
+   */
+  Hero() {
+    this.name = "heroA";
+    this.hp = 100;
+  }
+
+  /**
+   * コンストラクタ
+   * @param 勇者の名前
+   */
+  Hero(String name) {
+    this.name = name;
+    this.hp = 100;
+  }
+
   void attack() {
 
   }

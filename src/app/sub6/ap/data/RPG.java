@@ -17,6 +17,7 @@ public class RPG {
     this.hero();
     this.enemy();
     this.sword();
+    this.wizard();
   }
 
   void sword() {
@@ -30,13 +31,18 @@ public class RPG {
 
   void hero() {
     h.name = "heroA";
-    h.hp = 100;
+//    h.hp = 100;
 
     // TODO この処理移植
     h.sit(5);
     h.slip();
     h.sit(25);
     h.slip();
+  }
+
+  void wizard() {
+    Wizard w = new Wizard();
+    w.heal(h);
   }
 
   void enemy() {
