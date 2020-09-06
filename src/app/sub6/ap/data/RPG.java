@@ -1,6 +1,9 @@
 package app.sub6.ap.data;
 
 public class RPG {
+
+  Hero h = new Hero();
+
   public static void main(String args[]) {
     new RPG();
   }
@@ -13,11 +16,19 @@ public class RPG {
     System.out.println("RPG");
     this.hero();
     this.enemy();
+    this.sword();
+  }
+
+  void sword() {
+    Sword s = new Sword();
+    s.name = "炎の剣";
+    s.damage = 10;
+
+    h.sword = s;
+    System.out.println("現在の武器は" + h.sword.name);
   }
 
   void hero() {
-    Hero h = new Hero();
-
     h.name = "heroA";
     h.hp = 100;
 

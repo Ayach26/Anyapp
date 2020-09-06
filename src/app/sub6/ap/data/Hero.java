@@ -1,8 +1,13 @@
 package app.sub6.ap.data;
 
 public class Hero {
+
+  /** 勇者の名前 */
   String name;
+  /** 勇者の体力 */
   int hp;
+  /** 勇者が装備している剣の情報 */
+  Sword sword;
 
   void attack() {
 
