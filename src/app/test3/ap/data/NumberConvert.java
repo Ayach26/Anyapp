@@ -1,67 +1,93 @@
 package app.test3.ap.data;
 
-import java.util.Random;
+import java.text.DecimalFormat;
 
 public class NumberConvert {
 
-  private final String[] uniqueNum = EnglishNumberSelectors.UNIQUE_NUMBER;
+  private static String convertLessThanOneThousand(int number) {
+    String soFar;
 
-  private final String[] upToTen = EnglishNumberSelectors.UP_TO_TEN;
+    if (number % Constant.TEN < Constant.TWENTY) {
+      soFar = EnglishNumberSelectors.UNIQUE_NUMBER[number % Constant.ONE_HUNDRED];
+      number /= Constant.ONE_HUNDRED;
+    } else {
+      soFar = EnglishNumberSelectors.UNIQUE_NUMBER[number % Constant.TEN];
+      number /= Constant.TEN;
 
-  public String convert(final int n) {
-    if (n < 0) {
-      return "minus " + convert(-n);
+      soFar = EnglishNumberSelectors.UP_TO_TEN[number % Constant.TEN] + soFar;
+      number /= Constant.TEN;
     }
-
-    if (n < 20) {
-      return uniqueNum[n];
-    }
-
-    if (n < 100) {
-      return upToTen[n / 10] + ((n % 10 != 0) ? " " : "") + uniqueNum[n % 10];
-    }
-
-    if (n < 1000) {
-      return uniqueNum[n / 100] + " hundred" + ((n % 100 != 0) ? " " : "") + convert(n % 100);
-    }
-
-    if (n < 1000000) {
-      return convert(n / 1000) + " thousand" + ((n % 1000 != 0) ? " " : "") + convert(n % 1000);
-    }
-
-    if (n < 1000000000) {
-      return convert(n / 1000000) + " million" + ((n % 1000000 != 0) ? " " : "") + convert(n % 1000000);
-    }
-
-    return convert(n / 1000000000) + " billion" + ((n % 1000000000 != 0) ? " " : "") + convert(n % 1000000000);
+    if (number == 0)
+      return soFar;
+    return EnglishNumberSelectors.UNIQUE_NUMBER[number] + " hundred" + soFar;
   }
 
-  public void output() {
-    final Random generator = new Random();
-
-    int n;
-    for (int i = 0; i < 20; i++) {
-      n = generator.nextInt(Integer.MAX_VALUE);
-
-      System.out.printf("%10d = '%s'%n", n, convert(n));
+  public static String convert(long number) {
+    // 0 to 999 999 999 999
+    if (number == 0) {
+      return "zero";
     }
 
-    n = 1000;
-    System.out.printf("%10d = '%s'%n", n, convert(n));
+    String snumber = Long.toString(number);
 
-    n = 2000;
-    System.out.printf("%10d = '%s'%n", n, convert(n));
+    // pad with "0"
+    String mask = "000000000000";
+    DecimalFormat df = new DecimalFormat(mask);
+    snumber = df.format(number);
 
-    n = 10000;
-    System.out.printf("%10d = '%s'%n", n, convert(n));
+    // XXXnnnnnnnnn
+    int billions = Integer.parseInt(snumber.substring(0, 3));
+    // nnnXXXnnnnnn
+    int millions = Integer.parseInt(snumber.substring(3, 6));
+    // nnnnnnXXXnnn
+    int hundredThousands = Integer.parseInt(snumber.substring(6, 9));
+    // nnnnnnnnnXXX
+    int thousands = Integer.parseInt(snumber.substring(9, 12));
 
-    n = 11000;
-    System.out.printf("%10d = '%s'%n", n, convert(n));
+    String tradBillions;
+    switch (billions) {
+    case 0:
+      tradBillions = "";
+      break;
+    case 1:
+      tradBillions = convertLessThanOneThousand(billions) + " billion ";
+      break;
+    default:
+      tradBillions = convertLessThanOneThousand(billions) + " billion ";
+    }
+    String result = tradBillions;
 
-    n = 999999999;
-    System.out.printf("%10d = '%s'%n", n, convert(n));
+    String tradMillions;
+    switch (millions) {
+    case 0:
+      tradMillions = "";
+      break;
+    case 1:
+      tradMillions = convertLessThanOneThousand(millions) + " million ";
+      break;
+    default:
+      tradMillions = convertLessThanOneThousand(millions) + " million ";
+    }
+    result = result + tradMillions;
 
-    n = Integer.MAX_VALUE;
-    System.out.printf("%10d = '%s'%n", n, convert(n));
+    String tradHundredThousands;
+    switch (hundredThousands) {
+    case 0:
+      tradHundredThousands = "";
+      break;
+    case 1:
+      tradHundredThousands = "one thousand ";
+      break;
+    default:
+      tradHundredThousands = convertLessThanOneThousand(hundredThousands) + " thousand ";
+    }
+    result = result + tradHundredThousands;
+
+    String tradThousand;
+    tradThousand = convertLessThanOneThousand(thousands);
+    result = result + tradThousand;
+
+    // remove extra spaces!
+    return result.replaceAll("^\\s+", "").replaceAll("\\b\\s{2,}\\b", " ");
   }
 }
