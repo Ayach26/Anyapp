@@ -9,6 +9,12 @@ public class Consts {
 
   }
 
+  public static final int ZERO = 0;
+
+  public static final int DIGIT_ONE = 1;
+
+  public static final int DIGIT_TWO = 2;
+
   public static final int DIGIT_THREE = 3;
 
   public static final int DIGIT_FOUR = 4;
