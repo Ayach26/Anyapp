@@ -5,11 +5,15 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * 入力を受け付けるクラス
+ */
 public class ReadNumber {
 
   public String[] readTxt() {
     ArrayList<String> lines = new ArrayList<>();
     try {
+      // テストケース入力用
       File file = new File(System.getProperty("user.dir") + "/src.trial.java/app/test5/test/test.txt");
       Scanner scanner = new Scanner(file);
 
