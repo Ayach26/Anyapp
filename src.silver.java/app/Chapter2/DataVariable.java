@@ -1,7 +1,8 @@
-package app;
+package app.Chapter2;
 
-public class Chapter2 {
-  public static void main(String[] args) {
+public class DataVariable {
+
+  void variable() {
     byte b = 10;
     short s =20;
     int i = 30;

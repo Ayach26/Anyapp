@@ -1,4 +1,4 @@
-package app;
+package app.Chapter1;
 
 /**
  * ループ処理速度計測
