@@ -6,12 +6,39 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Bmi {
-  public static void main(String[] args) {
 
+  private final int ZERO = 0;
+
+  public static void main(String[] args) {
+    new Bmi().output();
   }
 
   private void output() {
+    double weight;
+    double height;
+    double expectBmi;
 
+    String[] lines = this.readTxt();
+    for(int i = 0; i < lines.length; i++) {
+      String[] value = lines[i].split(" ");
+
+      weight = Double.parseDouble(value[0]);
+      height= Double.parseDouble(value[1]);
+      expectBmi= Double.parseDouble(value[2]);
+
+      this.bmi(weight, height, expectBmi);
+    }
+  }
+
+  private void bmi(double weight, double height, double expectBmi) {
+    double bmi = 10000 * weight / (height * height);
+    if(expectBmi >= bmi) {
+      System.out.println(ZERO);
+    } else {
+      double calc = (expectBmi * (height * height)) /10000;
+      double result = weight - calc;
+      System.out.println((int)Math.ceil(result));
+    }
   }
 
   public String[] readTxt() {
