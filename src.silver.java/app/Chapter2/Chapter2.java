@@ -5,5 +5,6 @@ public class Chapter2 {
     new DataVariable().variable();
     new VarVariable().var();
     new Array().array();
+    new MultiArray().array();
   }
 }
