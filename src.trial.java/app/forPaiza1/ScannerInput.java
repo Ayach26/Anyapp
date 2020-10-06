@@ -1,4 +1,4 @@
-package app.forPaiza;
+package app.forPaiza1;
 
 import java.util.ArrayList;
 import java.util.Scanner;
