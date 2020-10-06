@@ -1,0 +1,2 @@
+/hoge/Picutures/ /hoge/Docs/
+/ /hoge/Pictures/
