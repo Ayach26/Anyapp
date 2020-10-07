@@ -1,4 +1,4 @@
-package app.forPaiza2;
+package app.Scanner;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -6,7 +6,7 @@ import java.util.Scanner;
 /**
  * N個のデータの入力
  */
-public class ScannerInput {
+public class ScannerData {
   public static void main(String[] args) {
     ArrayList<String> lines = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
