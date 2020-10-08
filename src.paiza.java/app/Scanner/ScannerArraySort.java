@@ -4,8 +4,9 @@ import java.util.Scanner;
 
 /**
  * 5個のデータ入力後、最小な数を出力
+ * 配列として要素数が事前に確保可能な場合
  */
-public class ScannerSort {
+public class ScannerArraySort {
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     // 入力は５回
