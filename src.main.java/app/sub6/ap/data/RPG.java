@@ -5,7 +5,13 @@ public class RPG {
   Hero h = new Hero();
 
   public static void main(String args[]) {
-    new RPG();
+//    new RPG();
+    Hero h1 = new Hero();
+    Hero h2 = new Hero();
+    // インスタンスh1の値hpを表示
+    System.out.println(h1.hp);
+    // Heroクラスの箱 moneyを表示
+    System.out.println(Hero.money);
   }
 
   public RPG() {

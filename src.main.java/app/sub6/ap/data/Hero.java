@@ -6,16 +6,10 @@ public class Hero {
   String name;
   /** 勇者の体力 */
   int hp;
+  /** 勇者の金額 */
+  static int money;
   /** 勇者が装備している剣の情報 */
   Sword sword;
-
-  /**
-   * 引数なしコンストラクタ
-   */
-  Hero() {
-    this.name = "heroA";
-    this.hp = 100;
-  }
 
   /**
    * コンストラクタ
@@ -24,6 +18,14 @@ public class Hero {
   Hero(String name) {
     this.name = name;
     this.hp = 100;
+  }
+
+  /**
+   * 引数なしコンストラクタ
+   */
+  Hero() {
+    // コンストラクタを呼び出す
+    this("ダミー");
   }
 
   void attack() {
