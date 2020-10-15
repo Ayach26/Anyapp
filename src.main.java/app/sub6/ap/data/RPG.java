@@ -8,10 +8,12 @@ public class RPG {
 //    new RPG();
     Hero h1 = new Hero();
     Hero h2 = new Hero();
-    // インスタンスh1の値hpを表示
-    System.out.println(h1.hp);
+    Hero.money = 100;
     // Heroクラスの箱 moneyを表示
     System.out.println(Hero.money);
+    System.out.println(h1.money);
+    h1.money = 300;
+    System.out.println(h2.money);
   }
 
   public RPG() {
