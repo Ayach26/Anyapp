@@ -1,5 +1,5 @@
 package app.brack.chapter1.Q4;
 
-public class Pkg {
+public class Q4Sample {
   protected int num = 10;
 }

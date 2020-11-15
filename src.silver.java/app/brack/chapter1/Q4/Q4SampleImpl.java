@@ -6,7 +6,7 @@ package app.brack.chapter1.Q4;
  *
  * またstaticフィールドのため以下の参照もコンパイルエラー
  */
-public class PkgImpl extends Pkg {
+public class Q4SampleImpl extends Q4Sample {
   public static void main(String[] args) {
     // System.out.println(num);
   }
