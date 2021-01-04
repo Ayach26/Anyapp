@@ -9,5 +9,6 @@
 	<classpathentry kind="src" path="src.trial.java"/>
 	<classpathentry kind="src" path="src.silver.java"/>
 	<classpathentry kind="src" path="src.paiza.java"/>
+	<classpathentry kind="src" path="src.udemy.java"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
