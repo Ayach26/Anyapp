@@ -1,4 +1,4 @@
-package app.oneweek.basic.day8;
+package app.oneweek.basic.exday1;
 
 public class SampleEx102 {
 

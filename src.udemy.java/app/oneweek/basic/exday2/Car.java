@@ -1,4 +1,4 @@
-package app.oneweek.basic.day9;
+package app.oneweek.basic.exday2;
 
 public class Car {
 

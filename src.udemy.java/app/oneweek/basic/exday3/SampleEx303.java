@@ -1,4 +1,4 @@
-package app.oneweek.basic.day10;
+package app.oneweek.basic.exday3;
 
 public class SampleEx303 {
   public static void main(String[] args) {

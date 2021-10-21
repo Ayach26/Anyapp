@@ -1,4 +1,4 @@
-package app.oneweek.basic.day10;
+package app.oneweek.basic.exday3;
 
 public class Crow02 extends Bird {
   public Crow02() {

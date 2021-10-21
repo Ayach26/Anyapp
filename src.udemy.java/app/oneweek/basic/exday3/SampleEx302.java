@@ -1,9 +1,9 @@
-package app.oneweek.basic.day10;
+package app.oneweek.basic.exday3;
 
-public class SampleEx301 {
+public class SampleEx302 {
   public static void main(String[] args) {
-    Crow01 c = new Crow01();
-    Sparrow01 s = new Sparrow01();
+    Crow02 c = new Crow02();
+    Sparrow02 s = new Sparrow02();
 
     System.out.print(c.getName()+":");
     c.sing();

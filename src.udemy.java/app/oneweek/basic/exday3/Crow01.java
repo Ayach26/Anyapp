@@ -1,4 +1,4 @@
-package app.oneweek.basic.day10;
+package app.oneweek.basic.exday3;
 
 public class Crow01 {
   private String name = "からす";
